@@ -14,13 +14,12 @@ public class MyView extends SurfaceView implements Runnable {
     boolean threadRunning = true;
     boolean isRunning = true;
     Canvas c;
-    Paint p;
-    private boolean firstTime = true;
 
 
     public MyView(Context context) {
         super(context);
         this.holder = getHolder();
+
     }
 
     @Override
@@ -34,7 +33,7 @@ public class MyView extends SurfaceView implements Runnable {
                 try {
                     c = this.getHolder().lockCanvas();
                     synchronized (this.getHolder()) {
-                        c.drawColor(Color.CYAN);
+
 
                     }
 
@@ -67,6 +66,6 @@ public class MyView extends SurfaceView implements Runnable {
 
     public void destroy() {
         isRunning = false;
-        ((GameActivity) getContext()).finish();
+        ((MainActivity) getContext()).finish();
     }
 }
